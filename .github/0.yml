@@ -1,0 +1,19 @@
+# https://github.com/marketplace/actions/create-issue-from-file
+# https://github.com/marketplace/actions/create-issue-from-file
+# v1.0.0.0
+- name: Create Issue From File
+  uses: peter-evans/create-issue-from-file@v3
+  with:
+    title: Localization - Master
+    content-filepath: master.md
+    labels: |
+      localization
+      help wanted
+    assignees: zer0Kerbal
+
+- name: Create or Update Project Card
+  uses: peter-evans/create-or-update-project-card@v1
+  with:
+    project-name: Localization
+    column-name: In progress
+    issue-number: ${{ steps.ciff.outputs.issue-number }}
